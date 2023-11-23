@@ -6,7 +6,7 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:12:31 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/22 16:21:42 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:43:15 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 int	print_d(t_printer *printer)
 {
-	printer->output_count++;
+	int	number;
+
+	number = va_arg(printer->params, int);
+	printer->status = safer_putnbr_fd(number, 1);
+	if (printer->status < 0)
+		return (1);
+	printer->output_count += printer->status;
 	return (0);
 }

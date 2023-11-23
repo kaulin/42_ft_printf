@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_x.c                                          :+:      :+:    :+:   */
+/*   safer_putnbr_ul_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 14:12:31 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/23 16:14:00 by jajuntti         ###   ########.fr       */
+/*   Created: 2023/11/22 16:40:52 by jajuntti          #+#    #+#             */
+/*   Updated: 2023/11/23 15:36:20 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_x(t_printer *printer)
+int	safer_putnbr_ul_fd(unsigned long n, int fd)
 {
-	unsigned long	hex;
+	int	written;
+	int	placeholder;
 
-	hex = va_arg(printer->params, unsigned int);
-	if (*printer->source == 'x')
-		printer->status = safer_putnbr_ul_base_fd(hex, "0123456789abcdef", 1);
-	else
-		printer->status = safer_putnbr_ul_base_fd(hex, "0123456789ABCDEF", 1);
-	if (printer->status < 0)
-		return (1);
-	printer->output_count += printer->status;
-	return (0);
+	written = 0;
+	if (n >= 10)
+	{
+		placeholder = safer_putnbr_ul_fd(n / 10, fd);
+		if (placeholder < 0)
+			return (-1);
+		written += placeholder;
+	}
+	if (safer_putchar_fd(n % 10 + '0', 1) < 0)
+		return (-1);
+	written++;
+	return (written);
 }
