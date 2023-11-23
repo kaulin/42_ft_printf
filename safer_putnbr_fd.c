@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   safer_putstr_fd.c                                  :+:      :+:    :+:   */
+/*   safer_putnbr_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 12:43:07 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/22 16:20:01 by jajuntti         ###   ########.fr       */
+/*   Created: 2023/11/22 16:40:52 by jajuntti          #+#    #+#             */
+/*   Updated: 2023/11/22 16:44:43 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	safer_putstr_fd(char *s, int fd)
+int    safer_putnbr_fd(int n, int fd)
 {
-	if (!fd)
-		return (-1);
-	if (!s)
-		return (write(fd, "(null)", 6));
-	else
-		return (write(fd, s, ft_strlen(s)));
+        char    digit;
+
+        if (n == -2147483648)
+        {
+                return (safer_putstr_fd("-2147483648", fd));
+        }
+        if (n < 0)
+        {
+                return (safer_putchar_fd('-', fd));
+                n *= -1;
+        }
+        if (n > 9)
+        {
+                ft_putnbr_fd(n / 10, fd);
+        }
+        digit = n % 10 + '0';
+        write(fd, &digit, 1);
 }

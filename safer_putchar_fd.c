@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   safer_putstr_fd.c                                  :+:      :+:    :+:   */
+/*   safer_putchar_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 12:43:07 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/22 16:20:01 by jajuntti         ###   ########.fr       */
+/*   Created: 2023/11/02 10:34:53 by jajuntti          #+#    #+#             */
+/*   Updated: 2023/11/22 16:16:44 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	safer_putstr_fd(char *s, int fd)
+int	safer_putchar_fd(char c, int fd)
 {
 	if (!fd)
 		return (-1);
-	if (!s)
-		return (write(fd, "(null)", 6));
-	else
-		return (write(fd, s, ft_strlen(s)));
+	return (write(fd, &c, 1));
 }

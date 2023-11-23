@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   safer_putchar_fd copy.c                            :+:      :+:    :+:   */
+/*   print_x.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 10:34:53 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/16 17:45:01 by jajuntti         ###   ########.fr       */
+/*   Created: 2023/11/22 14:12:31 by jajuntti          #+#    #+#             */
+/*   Updated: 2023/11/22 16:21:13 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	safer_putchar_fd(char c, int fd)
+int	print_x(t_printer *printer)
 {
-	return (write(fd, &c, sizeof(c)));
+	printer->output_count++;
+	return (0);
 }

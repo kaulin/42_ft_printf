@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   safer_putstr_fd.c                                  :+:      :+:    :+:   */
+/*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 12:43:07 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/22 16:20:01 by jajuntti         ###   ########.fr       */
+/*   Created: 2023/11/22 14:12:31 by jajuntti          #+#    #+#             */
+/*   Updated: 2023/11/22 16:21:00 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	safer_putstr_fd(char *s, int fd)
+int	print_p(t_printer *printer)
 {
-	if (!fd)
-		return (-1);
-	if (!s)
-		return (write(fd, "(null)", 6));
-	else
-		return (write(fd, s, ft_strlen(s)));
+	printer->output_count++;
+	return (0);
 }
