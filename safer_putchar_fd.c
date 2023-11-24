@@ -6,7 +6,7 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 10:34:53 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/22 16:16:44 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/24 10:57:22 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	safer_putchar_fd(char c, int fd)
 {
-	if (!fd)
-		return (-1);
-	return (write(fd, &c, 1));
+	return (write(fd, &c, sizeof(c)));
 }

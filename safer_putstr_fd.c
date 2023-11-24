@@ -6,7 +6,7 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:43:07 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/22 16:20:01 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/24 10:57:37 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	safer_putstr_fd(char *s, int fd)
 {
-	if (!fd)
-		return (-1);
 	if (!s)
 		return (write(fd, "(null)", 6));
 	else
