@@ -6,13 +6,11 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:32:31 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/23 10:52:56 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/24 10:52:19 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
-#include <stdarg.h>
 
 static int	convert(t_printer *printer)
 {
