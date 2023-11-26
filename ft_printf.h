@@ -6,7 +6,7 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:47:49 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/26 12:37:38 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/26 12:50:56 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	print_c(t_printer *printer);
 int	print_s(t_printer *printer);
 int	print_p(t_printer *printer);
 int	print_d(t_printer *printer);
-int	print_i(t_printer *printer);
 int	print_u(t_printer *printer);
 int	print_x(t_printer *printer);
 
