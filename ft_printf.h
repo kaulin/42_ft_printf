@@ -6,7 +6,7 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:47:49 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/24 10:51:38 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/26 12:37:38 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ typedef struct s_printer
 }	t_printer;
 
 int	ft_printf(const char *source, ...);
-int	safer_putchar_fd(char c, int fd);
-int	safer_putstr_fd(char *s, int fd);
-int	safer_putnbr_fd(int n, int fd);
-int	safer_putnbr_ul_fd(unsigned long n, int fd);
-int	safer_putnbr_ul_base_fd(unsigned long n, char *base, int fd);
+int	safer_putchar(char c);
+int	safer_putstr(char *s);
+int	safer_putnbr(int n);
+int	safer_putnbr_ul(unsigned long n);
+int	safer_putnbr_ul_base(unsigned long n, char *base);
 int	print_c(t_printer *printer);
 int	print_s(t_printer *printer);
 int	print_p(t_printer *printer);

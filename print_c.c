@@ -6,7 +6,7 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:12:31 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/23 10:53:53 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/26 12:27:55 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	print_c(t_printer *printer)
 	char	character;
 
 	character = (char)va_arg(printer->params, int);
-	if (safer_putchar_fd(character, 1) < 0)
+	if (safer_putchar(character) < 0)
 		return (1);
 	printer->output_count++;
 	return (0);

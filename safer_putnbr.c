@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   safer_putnbr_ul_fd.c                               :+:      :+:    :+:   */
+/*   safer_putnbr.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:40:52 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/23 15:36:20 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/26 12:29:53 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	safer_putnbr_ul_fd(unsigned long n, int fd)
+int	safer_putnbr(int n)
 {
 	int	written;
 	int	placeholder;
 
 	written = 0;
+	if (n == -2147483648)
+		return (safer_putstr("-2147483648"));
+	if (n < 0)
+	{
+		if (safer_putchar('-') < 0)
+			return (-1);
+		n *= -1;
+		written++;
+	}
 	if (n >= 10)
 	{
-		placeholder = safer_putnbr_ul_fd(n / 10, fd);
+		placeholder = safer_putnbr(n / 10);
 		if (placeholder < 0)
 			return (-1);
 		written += placeholder;
 	}
-	if (safer_putchar_fd(n % 10 + '0', 1) < 0)
+	placeholder = n % 10 + '0';
+	if (safer_putchar(placeholder) < 0)
 		return (-1);
 	written++;
 	return (written);

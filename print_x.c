@@ -6,7 +6,7 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:12:31 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/23 16:14:00 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/26 12:35:23 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	print_x(t_printer *printer)
 
 	hex = va_arg(printer->params, unsigned int);
 	if (*printer->source == 'x')
-		printer->status = safer_putnbr_ul_base_fd(hex, "0123456789abcdef", 1);
+		printer->status = safer_putnbr_ul_base(hex, "0123456789abcdef");
 	else
-		printer->status = safer_putnbr_ul_base_fd(hex, "0123456789ABCDEF", 1);
+		printer->status = safer_putnbr_ul_base(hex, "0123456789ABCDEF");
 	if (printer->status < 0)
 		return (1);
 	printer->output_count += printer->status;

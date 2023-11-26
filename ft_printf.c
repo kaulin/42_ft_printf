@@ -6,7 +6,7 @@
 /*   By: jajuntti <jajuntti@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:32:31 by jajuntti          #+#    #+#             */
-/*   Updated: 2023/11/24 10:52:19 by jajuntti         ###   ########.fr       */
+/*   Updated: 2023/11/26 12:36:55 by jajuntti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	convert(t_printer *printer)
 		printer->status = print_x(printer);
 	if (*printer->source == '%')
 	{
-		if (safer_putchar_fd('%', 1) < 0)
+		if (safer_putchar('%') < 0)
 			printer->status = 1;
 		else
 			printer->status = 0;
@@ -54,7 +54,7 @@ int	ft_printf(const char *source, ...)
 	{
 		if (*printer.source != '%')
 		{
-			if (safer_putchar_fd(*printer.source, 1) < 0)
+			if (safer_putchar(*printer.source) < 0)
 				return (-1);
 			printer.source++;
 			printer.output_count++;

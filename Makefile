@@ -1,11 +1,11 @@
 NAME = libftprintf.a
 
 SRCS = ft_printf.c \
-	safer_putchar_fd.c \
-	safer_putstr_fd.c \
-	safer_putnbr_fd.c \
-	safer_putnbr_ul_fd.c \
-	safer_putnbr_ul_base_fd.c \
+	safer_putchar.c \
+	safer_putstr.c \
+	safer_putnbr.c \
+	safer_putnbr_ul.c \
+	safer_putnbr_ul_base.c \
 	print_c.c \
 	print_s.c \
 	print_p.c \
